@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 136188310600837976}
   - component: {fileID: 23715550337294802}
   - component: {fileID: 195022067227003172}
-  - component: {fileID: 114831846234464958}
   - component: {fileID: 54760531984880818}
+  - component: {fileID: 114913388169475526}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114831846234464958
+--- !u!114 &114913388169475526
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,9 +107,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323906033028114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d70be1f4d20e9547813d67acf8c7a03, type: 3}
+  m_Script: {fileID: 11500000, guid: a9d7c2df71713a04eb20ef289bf8901c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
+  DMG: 0
 --- !u!136 &136188310600837976
 CapsuleCollider:
   m_ObjectHideFlags: 1
