@@ -1,25 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
+    [SerializeField]
+    public int HP, DMG;
+    
+    // Use this for initialization
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start () {
-        GameObject goal = GameObject.Find("Goal");
-        if (goal)
-        {
-            GetComponent<NavMeshAgent>().destination = goal.transform.position;
-        }
     }
 
-    void OnTriggerEnter(Collider collider)
+    // Update is called once per frame
+    void Update()
     {
-        if (collider.name == "Goal")
-        {
-            //decreas goal health here.
-            Destroy(gameObject);
-        }
+ 
     }
 }
