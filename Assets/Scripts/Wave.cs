@@ -7,15 +7,22 @@ public class Wave : MonoBehaviour {
     // Use this for initialization
 
     void Start () {
+
+	}
+
+    public int[] GetWave()
+    {
+        int[] enemyTypes = new int[2];
         switch (currentWave)
         {
             case 1:
-
+                enemyTypes[0] = 10;
                 currentWave++;
                 break;
         }
-	}
-	
+        return enemyTypes;
+    }
+
 	// Update is called once per frame
 	void Update () {
 		
