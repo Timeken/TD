@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
     [SerializeField]
     public int HP, DMG;
+
+    Goal tempGoal = new Goal();
     
     // Use this for initialization
     public void Start()
@@ -21,8 +23,13 @@ public class Enemy : MonoBehaviour {
     {
         if (collider.name == "Goal")
         {
-            //TODO decreas goal health here.
+            //TODO decrease goal health here.
             Destroy(gameObject);
+            tempGoal.DecreaseHealth(1);
+            if (tempGoal.GetHealth() <= 0)
+            {
+                Destroy(GameObject.Find("Goal"));
+            }
         }
         else if (collider.name == "projectile")
         {

@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour {
 
+    [SerializeField]
+    int GoalHealth = 1;
+
+    public void DecreaseHealth(int DMG)
+    {
+        GoalHealth -= DMG;
+    }
+
+    public int GetHealth()
+    {
+        return GoalHealth;
+    }
+
 	// Use this for initialization
 	void Start () {
 		
