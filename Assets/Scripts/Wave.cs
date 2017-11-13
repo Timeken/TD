@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wave : MonoBehaviour {
-    int currentWave = 1;
-    // Use this for initialization
 
-    void Start () {
-
-	}
-
-    public int[] GetWave()
+    public int[] GetWave(int currentWave)
     {
-        int[] enemyTypes = new int[2];
+        int[] enemyTypes = new int[5];// chage this if you add more enemies
+        // Add more waves here
         switch (currentWave)
         {
             case 1:
                 enemyTypes[0] = 10;
-                currentWave++;
                 break;
 
             case 2:
                 enemyTypes[0] = 13;
                 enemyTypes[1] = 2;
-                currentWave++;
+                break;
+            case 3:
+                enemyTypes[0] = 10;
+                enemyTypes[1] = 5;
+                break;
+            case 4:
+                enemyTypes[0] = 10;
+                enemyTypes[1] = 10;
+                break;
+            case 5:
+                enemyTypes[1] = 20;
                 break;
         }
         return enemyTypes;
     }
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

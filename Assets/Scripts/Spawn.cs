@@ -13,24 +13,32 @@ public class Spawn : MonoBehaviour {
     Enemy enemy = new Enemy();
 
     int[] spawningEnemy;
+    int currentEnemy = 0;
+    int currentWave = 1;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         InvokeRepeating("SpawnNext", interval, interval);
-        spawningEnemy = wave.GetWave();
+        spawningEnemy = wave.GetWave(currentWave);
     }
 	
 	void SpawnNext () {
-        for (int i = 0; i < spawningEnemy.Length; i++)
+        if (spawningEnemy[currentEnemy] != 0)
         {
-            for (int j = 0; j < spawningEnemy[i]; j++)
+            Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
+        }
+        if (--spawningEnemy[currentEnemy] <= 0)
+        {
+            currentEnemy++;
+
+            if (spawningEnemy.Length == currentEnemy)
             {
-                Instantiate(enemyList[i], transform.position, Quaternion.identity);
-                if (spawningEnemy.Length == 0)
-                {
-                    CancelInvoke("SpawnNext");
-                }
+                //CancelInvoke("SpawnNext");
+                currentWave++;
+                spawningEnemy = wave.GetWave(currentWave);
+                currentEnemy = 0;
             }
         }
+        
     }
 }

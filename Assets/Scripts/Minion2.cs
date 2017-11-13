@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minion : Enemy {
-    
+public class Minion2 : Enemy
+{
+
 }
