@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour {
 
-    public GameObject spwanEnemy;
+    public List<GameObject> enemyList;
 
     public float interval = 2;
 
     Wave wave = new Wave();
+
+    Enemy enemy = new Enemy();
 
     int[] spawningEnemy;
 
@@ -18,14 +20,17 @@ public class Spawn : MonoBehaviour {
         spawningEnemy = wave.GetWave();
     }
 	
-	// Update is called once per frame
 	void SpawnNext () {
-             
-        Instantiate(spwanEnemy, transform.position, Quaternion.identity);
-        if (--spawningEnemy[0] == 0)
+        for (int i = 0; i < spawningEnemy.Length; i++)
         {
-            CancelInvoke("SpawnNext");
+            for (int j = 0; j < spawningEnemy[i]; j++)
+            {
+                Instantiate(enemyList[i], transform.position, Quaternion.identity);
+                if (spawningEnemy.Length == 0)
+                {
+                    CancelInvoke("SpawnNext");
+                }
+            }
         }
-        
     }
 }

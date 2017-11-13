@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     public void Start()
     {
+
         GameObject goal = GameObject.Find("Goal");
         if (goal)
         {
