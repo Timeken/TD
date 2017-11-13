@@ -19,6 +19,12 @@ public class Wave : MonoBehaviour {
                 enemyTypes[0] = 10;
                 currentWave++;
                 break;
+
+            case 2:
+                enemyTypes[0] = 13;
+                enemyTypes[1] = 2;
+                currentWave++;
+                break;
         }
         return enemyTypes;
     }
