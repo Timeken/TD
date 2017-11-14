@@ -9,10 +9,9 @@ public class EnemyHandler : MonoBehaviour {
     public List<Enemy> enemyList = new List<Enemy>(); // This puts all objects which inherits from Enemy in a list!
 
     public Enemy CreateEnemy(int hp, int dmg) 
-    // Are used to create a new enemy. This needs to be called somewhere with two numbers which corresponds to the object's HP and DMG.
     {
         Enemy newEnemy = new Enemy();
-        newEnemy.HP = hp;
+        newEnemy.FullHP = hp;
         newEnemy.DMG = dmg;
         return newEnemy;
     }

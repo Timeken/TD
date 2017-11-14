@@ -6,7 +6,7 @@ public class Minion2 : Enemy
 {
     public void SetValues(int hp, int damage)
     {
-        this.HP = hp;
+        this.FullHP = hp;
         this.DMG = damage;
     }
 }

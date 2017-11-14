@@ -5,20 +5,19 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 
-    public int HP, DMG;
+    public int FullHP, DMG;
 
     public int SetHP
     {
-        get { return HP; }
-        set { HP = value; }
+        get { return FullHP; }
+        set { FullHP = value; }
     }
 
     Goal tempGoal = new Goal();
     
     // Use this for initialization
     public void Start()
-    {
-        
+    {       
         GameObject goal = GameObject.Find("Goal");
         if (goal)
         {
@@ -30,13 +29,13 @@ public class Enemy : MonoBehaviour {
     {
         if (collider.name == "Goal")
         {
-            //TODO decrease goal health here.
             Destroy(gameObject);
 
             tempGoal.DecreaseHealth(DMG);
             if (tempGoal.GetHealth() <= 0)
             {
-                Destroy(GameObject.Find("Goal"));
+                Destroy(GameObject.Find("Goal")); // When goal's HP is zero, delete it.
+                // We need to add some sorts of Game Over screen here, with a "Play again" button and a "Exit game"-button.
             }
         }
         else if (collider.name == "projectile")
