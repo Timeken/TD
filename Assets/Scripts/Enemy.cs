@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
-    [SerializeField]
+
     public int HP, DMG;
+
+    public int SetHP
+    {
+        get { return HP; }
+        set { HP = value; }
+    }
 
     Goal tempGoal = new Goal();
     
     // Use this for initialization
     public void Start()
     {
-
+        
         GameObject goal = GameObject.Find("Goal");
         if (goal)
         {
@@ -26,7 +32,8 @@ public class Enemy : MonoBehaviour {
         {
             //TODO decrease goal health here.
             Destroy(gameObject);
-            tempGoal.DecreaseHealth(1);
+
+            tempGoal.DecreaseHealth(DMG);
             if (tempGoal.GetHealth() <= 0)
             {
                 Destroy(GameObject.Find("Goal"));

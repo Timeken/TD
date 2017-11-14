@@ -25,7 +25,15 @@ public class Spawn : MonoBehaviour {
 	void SpawnNext () {
         if (spawningEnemy[currentEnemy] != 0)
         {
+            //spawns ufo
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
+            if (enemyList[currentEnemy].GetComponent<Minion1>() == null)
+            {
+                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(200, 10);
+            } else
+            {
+                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5);
+            }
         }
         if (--spawningEnemy[currentEnemy] <= 0)
         {

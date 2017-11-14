@@ -5,7 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour {
 
     [SerializeField]
-    int GoalHealth = 10;
+    int GoalHealth = 100;
 
     public void DecreaseHealth(int DMG)
     {
