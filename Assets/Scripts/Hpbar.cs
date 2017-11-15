@@ -6,15 +6,18 @@ using UnityEngine.UI;
 public class Hpbar : MonoBehaviour
 {
     public Slider HPslider;
-    public Minion1 minion;
+    Enemy myEnemy;  
 
-    public int minionHP
+    public void Start()
     {
-        get { return minion.FullHP; }
-        set { minion.FullHP = value; }
+      myEnemy = GetComponent<Enemy>(); // The enemy that the bar is connected to.
+        HPslider.maxValue = myEnemy.FullHP; // Sets the slider's max value to the enemy's max health.
+        HPslider.minValue = 0; 
     }
 
-    public void Test()
+    public void Update()
     {
+        HPslider.value = myEnemy.currentHP; // Sets the slider's value to the current HP.
     }
+
 }

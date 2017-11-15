@@ -11,7 +11,8 @@ public class Wave : MonoBehaviour {
         switch (currentWave)
         {
             case 1:
-                enemyTypes[0] = 10;
+                enemyTypes[0] = 1;
+                enemyTypes[1] = 1;
                 break;
 
             case 2:
