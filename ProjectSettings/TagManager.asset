@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Turret
+  - BuildSpot
+  - UI
   layers:
   - Default
   - TransparentFX
