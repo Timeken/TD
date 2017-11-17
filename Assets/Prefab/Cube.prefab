@@ -219,10 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d442227974e0f438344b16ba51dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FullHP: 200
+  FullHP: 300
   DMG: 10
   currentHP: 0
-  dollarValue: 50
+  dollarValue: 10
 --- !u!114 &114429437366542464
 MonoBehaviour:
   m_ObjectHideFlags: 1

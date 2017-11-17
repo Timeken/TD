@@ -23,12 +23,12 @@ public class IngameButtons : MonoBehaviour {
         playerHandler = gameObject.GetComponent<PlayerHandler>();
 
 
-        playerGold.text = playerHandler.gold.ToString() + " Gold";
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
     }
 
     private void Update()
     {
-        playerGold.text = playerHandler.gold.ToString() + " Gold";
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
     }
 
     public void BuildButtonClick()

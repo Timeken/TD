@@ -29,9 +29,9 @@ public class BuildSpot : MonoBehaviour
 
     void OnMouseUpAsButton()
     {
-        if (ingameButtons.canBuild && playerHandler.gold >= baseTurretCost)
+        if (ingameButtons.canBuild && playerHandler.dollarValue >= baseTurretCost)
         {
-            playerHandler.gold -= baseTurretCost;
+            playerHandler.dollarValue -= baseTurretCost;
             GameObject gameObject = Instantiate(Turret);
             gameObject.transform.position = transform.position;
             Destroy(DestroyTemp);

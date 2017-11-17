@@ -29,10 +29,10 @@ public class Spawn : MonoBehaviour {
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
             if (enemyList[currentEnemy].GetComponent<Minion1>() == null)
             {
-                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(200, 10, 50); // HP, damage, value
+                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(300, 10, 10); // HP, damage, value
             } else
             {
-                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5, 25); // HP, damage, value
+                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5, 5); // HP, damage, value
             }
         }
         if (--spawningEnemy[currentEnemy] <= 0)

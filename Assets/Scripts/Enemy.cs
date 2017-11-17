@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
     
-    public int FullHP, DMG, currentHP, dollarValue; // Maybe it's a problem that there are so many global variables, but, oh well.
+    public float FullHP, DMG, currentHP, dollarValue; // Maybe it's a problem that there are so many global variables, but, oh well.
 
+    PlayerHandler playerHandler;
     Goal tempGoal = new Goal();
     
     public void Start()
@@ -22,29 +23,29 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void Update()
+    public bool TakeDamage(float enemydamage, GameObject gameObject) // Gets called every time the minion takes damage.
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            TakeDamage(30);  // Check to see if the HP bar works
-            print("Damage done!");     
-            
-            if(currentHP <= 0)
-            {
-                print("Enemy defeated!"); // Maybe make a method here. Maybe not.
-            }
-        }
-    }
+        bool enemyDead = false;
 
-    public void TakeDamage(int enemydamage) // Gets called every time the minion takes damage.
-    {
         currentHP -= enemydamage; // Hpbar value is connected to currentHP, so it will change accordingly.
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+            enemyDead = true;
+
+            gameObject = GameObject.FindGameObjectWithTag("MainCamera");
+            playerHandler = gameObject.GetComponent<PlayerHandler>();
+
+            playerHandler.dollarValue += dollarValue;
+        }
+
+        return enemyDead;
     }
 
 
     public void OnTriggerEnter(Collider collider)
     {
-        if (collider.name == "Goal")
+        if (collider.name == "Goal") //If enemy hit the goal, then take dmg.
         {
             Destroy(gameObject);
 
@@ -58,7 +59,7 @@ public class Enemy : MonoBehaviour {
 
         else if (collider.name == "projectile")
         {
-            //TODO get dmg from projectile and decrease enemy hp.
+            //TODO destroy projectile when they hit an enemy.
         }
     }
 }

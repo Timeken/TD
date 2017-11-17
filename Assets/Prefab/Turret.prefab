@@ -448,6 +448,7 @@ MonoBehaviour:
   Rotation: 0
   target: {fileID: 0}
   enemiesInRange: []
+  projectile: {fileID: 1384590851376836, guid: 99fa4f981ea630b4ba47237e685c1f90, type: 2}
   rotatingPart: {fileID: 4137100401806446}
 --- !u!135 &135499953646119550
 SphereCollider:

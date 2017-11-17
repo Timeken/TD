@@ -5,15 +5,15 @@ using UnityEngine;
 public class Goal : MonoBehaviour {
 
     [SerializeField]
-    public int GoalHealth = 100;
-    public int GoalCurrentHealth;
+    public float GoalHealth = 100;
+    public float GoalCurrentHealth;
 
-    public void DecreaseHealth(int DMG)
+    public void DecreaseHealth(float DMG)
     {
         GoalHealth -= DMG;
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return GoalHealth;
     }
@@ -22,9 +22,5 @@ public class Goal : MonoBehaviour {
 	void Start () {
         GoalCurrentHealth = GoalHealth;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

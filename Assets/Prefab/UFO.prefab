@@ -283,7 +283,7 @@ MonoBehaviour:
   FullHP: 100
   DMG: 5
   currentHP: 0
-  dollarValue: 25
+  dollarValue: 5
 --- !u!114 &114848064269339708
 MonoBehaviour:
   m_ObjectHideFlags: 1
