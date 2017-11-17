@@ -25,14 +25,14 @@ public class Spawn : MonoBehaviour {
 	void SpawnNext () {
         if (spawningEnemy[currentEnemy] != 0)
         {
-            //spawns ufo
+            //Spawns enemies. SetValues are temporary, change at will.
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
             if (enemyList[currentEnemy].GetComponent<Minion1>() == null)
             {
-                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(200, 10);
+                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(200, 10, 50); // HP, damage, value
             } else
             {
-                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5);
+                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5, 25); // HP, damage, value
             }
         }
         if (--spawningEnemy[currentEnemy] <= 0)

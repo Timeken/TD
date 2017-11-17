@@ -5,7 +5,8 @@ using UnityEngine;
 public class Goal : MonoBehaviour {
 
     [SerializeField]
-    int GoalHealth = 100;
+    public int GoalHealth = 100;
+    public int GoalCurrentHealth;
 
     public void DecreaseHealth(int DMG)
     {
@@ -19,7 +20,7 @@ public class Goal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GoalCurrentHealth = GoalHealth;
 	}
 	
 	// Update is called once per frame
