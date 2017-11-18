@@ -10,11 +10,16 @@ public class Minion1 : Enemy {
 
     GameObject enemy;
 
-    public void SetValues(float hp, float damage, float value)
+    public void SetValues(float hp, float damage, int value)
     {
         this.FullHP = hp;
         this.DMG = damage;
         this.dollarValue = value;
+    }
+
+    public float EnemyGetDMG()
+    {
+        return DMG;
     }
 
 }

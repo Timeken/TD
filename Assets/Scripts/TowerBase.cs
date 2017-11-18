@@ -20,7 +20,7 @@ public class TowerBase : Tower {
         enemiesInRange = new List<GameObject>();
 
         Rotation = 4;
-        DMG = 25;
+        DMG = 25.0f;
         Firerate = 2;
 
         InvokeRepeating("TimeToShoot", Firerate, Firerate);
