@@ -12,6 +12,9 @@ public class IngameButtons : MonoBehaviour {
     public Text playerGold;
     public bool canBuild;
 
+    public GameObject upgradeMenu;
+    private bool isShowing;
+
     private void Awake()
     {
         instance = this;
@@ -22,6 +25,7 @@ public class IngameButtons : MonoBehaviour {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
 
+        upgradeMenu.gameObject.SetActive(false);
 
         playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
     }
@@ -36,5 +40,14 @@ public class IngameButtons : MonoBehaviour {
         canBuild = true;
         Debug.Log("Presed");
 	}
+
+    public bool TurretUpgrade(GameObject turret)
+    {
+        bool canUpgrade = false;
+        Debug.Log("Activate");
+        upgradeMenu.gameObject.SetActive(true);
+
+        return canUpgrade;
+    }
 
 }

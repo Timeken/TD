@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     public Transform target;
+    public float DMG;
 
     Enemy enemy;
 
@@ -17,6 +18,19 @@ public class Projectile : MonoBehaviour {
         }
         else
         {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnTriggerEnter(Collider collidingEnemy)
+    {
+        if (collidingEnemy.gameObject.tag.Equals("Enemy") && collidingEnemy.transform == target)
+        {
+            GameObject enemyTarget = collidingEnemy.gameObject;
+            enemy = enemyTarget.GetComponent<Enemy>();
+
+            enemy.TakeDamage(DMG, enemyTarget);
+
             Destroy(gameObject);
         }
     }

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public float FullHP, DMG, currentHP;
-    public int dollarValue;
-    
+    public float FullHP, DMG, currentHP, dollarValue;
+
+    PlayerHandler playerHandler;
+
     public void Start()
     {
         currentHP = FullHP;
@@ -32,11 +33,16 @@ public class Enemy : MonoBehaviour {
         bool enemyDead = false;
 
         currentHP -= enemydamage; // Hpbar value is connected to currentHP, so it will change accordingly.
-
-        if (currentHP < 0)
+        //check if enemy is dead
+        if (currentHP <= 0)
         {
             Destroy(gameObject);
             enemyDead = true;
+
+            gameObject = GameObject.FindGameObjectWithTag("MainCamera");
+            playerHandler = gameObject.GetComponent<PlayerHandler>();
+
+            playerHandler.dollarValue += dollarValue;
         }
 
         return enemyDead;
@@ -48,11 +54,6 @@ public class Enemy : MonoBehaviour {
         {
             Destroy(gameObject);
             
-        }
-
-        else if (collider.name == "projectile")
-        {
-            //TODO get dmg from projectile and decrease enemy hp.
         }
     }
 }

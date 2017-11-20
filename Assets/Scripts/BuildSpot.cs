@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildSpot : MonoBehaviour
-{
+public class BuildSpot : MonoBehaviour {
 
     public GameObject Turret;
     public GameObject TurretTemp;
     GameObject DestroyTemp;
-
     IngameButtons ingameButtons;
     PlayerHandler playerHandler;
 
@@ -16,7 +14,7 @@ public class BuildSpot : MonoBehaviour
     RaycastHit hit;
     bool Buildt = false;
 
-    int baseTurretCost = 50;
+    float baseTurretCost = 50;
 
     private void Start()
     {
@@ -43,7 +41,6 @@ public class BuildSpot : MonoBehaviour
     {
         if (!Buildt && ingameButtons.canBuild)
         {
-            Debug.Log(ingameButtons.canBuild);
             DestroyTemp = Instantiate(TurretTemp);
             DestroyTemp.transform.position = transform.position;
         }
