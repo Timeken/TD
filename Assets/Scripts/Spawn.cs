@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour {
 
     public List<GameObject> enemyList;
 
     public float interval = 2;
+    [SerializeField]
+    Text currentWaveText;
 
     Wave wave = new Wave();
-
     Enemy enemy = new Enemy();
 
     int[] spawningEnemy;
@@ -25,7 +27,6 @@ public class Spawn : MonoBehaviour {
 	void SpawnNext () {
         if (spawningEnemy[currentEnemy] != 0)
         {
-            //Spawns enemies. SetValues are temporary, change at will.
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
             if (enemyList[currentEnemy].GetComponent<Minion1>() == null)
             {
@@ -48,5 +49,9 @@ public class Spawn : MonoBehaviour {
             }
         }
         
+    }
+    private void Update()
+    {
+        currentWaveText.text = "Wave number " + currentWave.ToString();
     }
 }
