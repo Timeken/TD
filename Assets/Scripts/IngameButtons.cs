@@ -13,10 +13,18 @@ public class IngameButtons : MonoBehaviour {
     public bool canBuild;
     public bool optionsButtonPressed;
 
+    public float TurretUpgrade1Cost = 50, TurretUpgrade2Cost = 150;
 
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
-    private bool isShowing;
+
+    public GameObject TurretUpgrade1;
+    public GameObject TurretUpgrade2;
+
+    private GameObject TurretSelected;
+    private string TurretType;
+
+    //private bool isShowing;
 
     private void Awake()
     {
@@ -54,10 +62,47 @@ public class IngameButtons : MonoBehaviour {
 
     }
 
-    public bool TurretUpgrade(GameObject turret)
+    public void Upgrade1ButtonClick()
     {
+
+        switch (TurretType)
+        {
+            case "turretBase":
+                if (playerHandler.dollarValue >= TurretUpgrade1Cost)
+                {
+                    playerHandler.dollarValue -= TurretUpgrade1Cost;
+                    GameObject gameObject = Instantiate(TurretUpgrade1);
+                    gameObject.transform.position = TurretSelected.transform.position;
+                    Destroy(TurretSelected);
+                }
+                break;
+        }
+        upgradeMenu.gameObject.SetActive(false);
+    }
+
+    public void Upgrade2ButtonClick()
+    {
+
+        switch (TurretType)
+        {
+            case "turretBase":
+                if (playerHandler.dollarValue >= TurretUpgrade2Cost)
+                {
+                    playerHandler.dollarValue -= TurretUpgrade2Cost;
+                    GameObject gameObject = Instantiate(TurretUpgrade2);
+                    gameObject.transform.position = TurretSelected.transform.position;
+                    Destroy(TurretSelected);
+                }
+                break;
+        }
+        upgradeMenu.gameObject.SetActive(false);
+    }
+
+    public bool TurretUpgrade(GameObject turret, string turretType)
+    {
+        TurretSelected = turret;
+        TurretType = turretType;
         bool canUpgrade = false;
-        Debug.Log("Activate");
         upgradeMenu.gameObject.SetActive(true);
 
         return canUpgrade;

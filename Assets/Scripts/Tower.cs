@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour {
 
-    public float Cost, DMG, Firerate, Range, Rotation;
+    public float DMG, Firerate, Range, Rotation, Ammo;
 
 
 }

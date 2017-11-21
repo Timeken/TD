@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerBase : Tower {
+public class TurretUpgrade1 : Tower {
 
     public Transform target;
     public List<GameObject> enemiesInRange;
@@ -23,9 +23,9 @@ public class TowerBase : Tower {
         enemiesInRange = new List<GameObject>();
 
         Rotation = 4;
-        DMG = 25.0f;
+        DMG = 50.0f;
         Firerate = 2;
-        Ammo = 10;
+        Ammo = 15;
 
         InvokeRepeating("TimeToShoot", Firerate, Firerate);
     }
@@ -56,11 +56,11 @@ public class TowerBase : Tower {
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray,out hit) == click.transform)
+            if (Physics.Raycast(ray, out hit) == click.transform)
             {
                 GameObject button = GameObject.FindGameObjectWithTag("UI");
                 ingameButtons = button.GetComponent<IngameButtons>();
-                ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretBase");
+                ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade1");
                 Ammo = 10;
             }
         }
