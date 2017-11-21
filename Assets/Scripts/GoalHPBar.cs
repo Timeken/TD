@@ -9,7 +9,6 @@ public class GoalHPBar : MonoBehaviour
     public Text GoalHealthText;
     Goal myGoal;
 
-
     void Start()
     {
         myGoal = GetComponent<Goal>();
@@ -20,7 +19,7 @@ public class GoalHPBar : MonoBehaviour
     void Update()
     {
         GoalHpSlider.value = myGoal.GoalCurrentHealth; // Updates the value on the goal's health bar.
-        GoalHealthText.text = GoalHpSlider.value.ToString(); // Sets the text on the bar to the same value.
+        GoalHealthText.text = GoalHpSlider.value.ToString() + "HP"; // Sets the text on the bar to the same value.
     } 
 
 }

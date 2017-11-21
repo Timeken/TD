@@ -17,6 +17,7 @@ public class IngameButtons : MonoBehaviour {
 
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
+<<<<<<< HEAD
 
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
@@ -25,6 +26,10 @@ public class IngameButtons : MonoBehaviour {
     private string TurretType;
 
     //private bool isShowing;
+=======
+    public GameObject gameOverWindow;
+    private bool isShowing;
+>>>>>>> f9522cf9a0f6ff5bb5d59a8d6177ef746087eeae
 
     private void Awake()
     {
@@ -35,16 +40,22 @@ public class IngameButtons : MonoBehaviour {
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
-        
-        upgradeMenu.gameObject.SetActive(false);
-        optionsMenu.SetActive(false);
 
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
+        gameOverWindow.gameObject.SetActive(false); // Game Over window is not visible at start.
+        upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
+        optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
+
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
     }
 
     private void Update()
     {
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
+
+        if (playerHandler.dollarValue == 1)
+        {
+            playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar"; // Grammar!!!
+        }
     }
 
     public void BuildButtonClick()
@@ -57,11 +68,11 @@ public class IngameButtons : MonoBehaviour {
     {
         optionsButtonPressed = true;
         optionsMenu.gameObject.SetActive(true);
+        Time.timeScale = 0; // Pauses the game while the Options window is open. 
         print("Options Button pressed.");
-
-
     }
 
+<<<<<<< HEAD
     public void Upgrade1ButtonClick()
     {
 
@@ -99,6 +110,10 @@ public class IngameButtons : MonoBehaviour {
     }
 
     public bool TurretUpgrade(GameObject turret, string turretType)
+=======
+
+    public bool TurretUpgrade(GameObject turret)
+>>>>>>> f9522cf9a0f6ff5bb5d59a8d6177ef746087eeae
     {
         TurretSelected = turret;
         TurretType = turretType;
