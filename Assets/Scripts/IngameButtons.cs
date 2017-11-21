@@ -28,8 +28,8 @@ public class IngameButtons : MonoBehaviour {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
         
-        upgradeMenu.gameObject.SetActive(false);
-        optionsMenu.SetActive(false);
+        upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
+        optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
 
         playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
     }
@@ -49,10 +49,10 @@ public class IngameButtons : MonoBehaviour {
     {
         optionsButtonPressed = true;
         optionsMenu.gameObject.SetActive(true);
+        Time.timeScale = 0; // Pauses the game while the Options window is open. 
         print("Options Button pressed.");
-
-
     }
+
 
     public bool TurretUpgrade(GameObject turret)
     {
