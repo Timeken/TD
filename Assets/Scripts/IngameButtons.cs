@@ -16,6 +16,7 @@ public class IngameButtons : MonoBehaviour {
 
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
+    public GameObject gameOverWindow;
     private bool isShowing;
 
     private void Awake()
@@ -27,16 +28,22 @@ public class IngameButtons : MonoBehaviour {
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
-        
+
+        gameOverWindow.gameObject.SetActive(false); // Game Over window is not visible at start.
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
 
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
     }
 
     private void Update()
     {
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar";
+        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
+
+        if (playerHandler.dollarValue == 1)
+        {
+            playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar"; // Grammar!!!
+        }
     }
 
     public void BuildButtonClick()

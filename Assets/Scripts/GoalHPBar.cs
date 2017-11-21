@@ -9,7 +9,6 @@ public class GoalHPBar : MonoBehaviour
     public Text GoalHealthText;
     Goal myGoal;
 
-
     void Start()
     {
         myGoal = GetComponent<Goal>();
