@@ -17,7 +17,7 @@ public class IngameButtons : MonoBehaviour {
 
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
-<<<<<<< HEAD
+
 
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
@@ -25,11 +25,11 @@ public class IngameButtons : MonoBehaviour {
     private GameObject TurretSelected;
     private string TurretType;
 
-    //private bool isShowing;
-=======
+
+
     public GameObject gameOverWindow;
     private bool isShowing;
->>>>>>> f9522cf9a0f6ff5bb5d59a8d6177ef746087eeae
+
 
     private void Awake()
     {
@@ -72,7 +72,7 @@ public class IngameButtons : MonoBehaviour {
         print("Options Button pressed.");
     }
 
-<<<<<<< HEAD
+
     public void Upgrade1ButtonClick()
     {
 
@@ -110,11 +110,9 @@ public class IngameButtons : MonoBehaviour {
     }
 
     public bool TurretUpgrade(GameObject turret, string turretType)
-=======
+    { 
+    //public bool TurretUpgrade(GameObject turret)
 
-    public bool TurretUpgrade(GameObject turret)
->>>>>>> f9522cf9a0f6ff5bb5d59a8d6177ef746087eeae
-    {
         TurretSelected = turret;
         TurretType = turretType;
         bool canUpgrade = false;
