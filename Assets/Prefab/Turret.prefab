@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 54111893542817406}
   - component: {fileID: 135499953646119550}
   - component: {fileID: 114491931320081370}
+  - component: {fileID: 82940892000012536}
   m_Layer: 2
   m_Name: Range
   m_TagString: Turret
@@ -473,6 +474,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!82 &82940892000012536
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990049453473768}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8cd5d11c36f47214d85f53159488b8b1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95225267562222774
 Animator:
   serializedVersion: 3
@@ -505,7 +586,6 @@ MonoBehaviour:
   Firerate: 0
   Range: 0
   Rotation: 0
-  Ammo: 0
   target: {fileID: 0}
   enemiesInRange: []
   projectile: {fileID: 1384590851376836, guid: 99fa4f981ea630b4ba47237e685c1f90, type: 2}
@@ -516,11 +596,13 @@ MonoBehaviour:
   changeTexture3: {fileID: 1165487952240802}
   rotatingPart: {fileID: 4137100401806446}
   barrelPoint: {fileID: 4430077539080226}
+  shootingSound: {fileID: 82940892000012536}
   textures:
   - {fileID: 2800000, guid: cc1585c6033819c47b9b20f98d2a0d2a, type: 3}
   - {fileID: 2800000, guid: a721ba6c71a3ce445a3eaaf2fa0d119f, type: 3}
   - {fileID: 2800000, guid: cad4703928225874a827adb970cd4264, type: 3}
   period: 1
+  ammo: 0
 --- !u!135 &135499953646119550
 SphereCollider:
   m_ObjectHideFlags: 1

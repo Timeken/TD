@@ -17,6 +17,8 @@ public class TowerBase : Tower {
     public Transform rotatingPart;
     public Transform barrelPoint;
 
+    public AudioSource shootingSound;
+
     public Texture[] textures;
 
     private float nextActionTime = 0.0f;
@@ -41,7 +43,6 @@ public class TowerBase : Tower {
 
     void Update()
     {
-
         if (enemiesInRange.Count != 0)
         {
             enemyToShoot = enemiesInRange[0];
@@ -111,6 +112,7 @@ public class TowerBase : Tower {
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
+            shootingSound.Play(); // Test test!!
             ammo--;
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             //TODO? add greater speed for projectile?
