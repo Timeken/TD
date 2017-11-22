@@ -19,7 +19,6 @@ public class IngameButtons : MonoBehaviour {
     public GameObject optionsMenu;
     public GameObject winScreen;
 
-
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
 
@@ -27,8 +26,6 @@ public class IngameButtons : MonoBehaviour {
     private string TurretType;
 
 
-
-    public GameObject gameOverWindow;
     private bool isShowing;
 
 
@@ -42,10 +39,10 @@ public class IngameButtons : MonoBehaviour {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
 
-        //gameOverWindow.gameObject.SetActive(false); // Game Over window is not visible at start.
+
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
-        winScreen.gameObject.SetActive(false); // Win screen not visible at start.
+        //winScreen.gameObject.SetActive(false); // Win screen not visible at start.
 
 
         playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";

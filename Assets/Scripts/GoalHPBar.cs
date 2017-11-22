@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GoalHPBar : MonoBehaviour
 {
     public Slider GoalHpSlider;
-    public Text GoalHealthText;
+    public Text GoalHealthText; 
     Goal myGoal;
 
     void Start()
