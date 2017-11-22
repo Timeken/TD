@@ -42,7 +42,7 @@ public class IngameButtons : MonoBehaviour {
 
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
-        //winScreen.gameObject.SetActive(false); // Win screen not visible at start.
+        winScreen.gameObject.SetActive(false); // Win screen not visible at start.
 
 
         playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
