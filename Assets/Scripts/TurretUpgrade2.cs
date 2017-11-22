@@ -62,7 +62,7 @@ public class TurretUpgrade2 : Tower
             {
                 GameObject button = GameObject.FindGameObjectWithTag("UI");
                 ingameButtons = button.GetComponent<IngameButtons>();
-                ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade1");
+                ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade2");
                 Ammo = 10;
             }
         }

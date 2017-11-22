@@ -8,6 +8,7 @@ public class Spawn : MonoBehaviour {
     public List<GameObject> enemyList;
 
     public float interval = 2;
+    //public float time = 2;
     [SerializeField]
     Text currentWaveText;
 
@@ -17,6 +18,9 @@ public class Spawn : MonoBehaviour {
     int[] spawningEnemy;
     int currentEnemy = 0;
     int currentWave = 1;
+    int maxWave = 5;
+
+    IngameButtons ingameButtons;
 
     // Use this for initialization
     void Start () {
@@ -38,11 +42,11 @@ public class Spawn : MonoBehaviour {
         }
         if (--spawningEnemy[currentEnemy] <= 0)
         {
+
             currentEnemy++;
 
-            if (spawningEnemy.Length == currentEnemy)
+            if (spawningEnemy.Length == currentEnemy && currentWave != maxWave)
             {
-                //CancelInvoke("SpawnNext");
                 currentWave++;
                 spawningEnemy = wave.GetWave(currentWave);
                 currentEnemy = 0;
@@ -53,5 +57,12 @@ public class Spawn : MonoBehaviour {
     private void Update()
     {
         currentWaveText.text = "Wave number " + currentWave.ToString();
+        if (currentWave == maxWave && GameObject.FindGameObjectWithTag("Enemy") == null) // Check if there is no enemy left in the final wave.
+        {
+            GameObject button = GameObject.FindGameObjectWithTag("UI");
+            ingameButtons = button.GetComponent<IngameButtons>();
+
+            ingameButtons.winScreen.SetActive(true);
+        }
     }
 }
