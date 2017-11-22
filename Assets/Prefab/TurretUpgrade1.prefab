@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930670779491602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50, y: 1, z: 50}
+  m_LocalPosition: {x: 54.736305, y: 1.5, z: 60.717773}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_Children:
   - {fileID: 4606706727350414}
@@ -350,6 +350,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -367,6 +368,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -384,6 +386,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -399,6 +402,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -416,6 +420,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -431,6 +436,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -508,7 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b3bbc450fe1ca4dad56b3b179a0a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cost: 0
   DMG: 0
   Firerate: 0
   Range: 0
@@ -519,8 +524,16 @@ MonoBehaviour:
   projectile: {fileID: 1384590851376836, guid: 99fa4f981ea630b4ba47237e685c1f90, type: 2}
   enemyToShoot: {fileID: 0}
   click: {fileID: 1187461135427538}
+  changeTexture1: {fileID: 1493756432488742}
+  changeTexture2: {fileID: 1774860979862708}
+  changeTexture3: {fileID: 1462785671034252}
   rotatingPart: {fileID: 4903510297806722}
   barrelPoint: {fileID: 4135197460471636}
+  textures:
+  - {fileID: 2800000, guid: a721ba6c71a3ce445a3eaaf2fa0d119f, type: 3}
+  - {fileID: 2800000, guid: cc1585c6033819c47b9b20f98d2a0d2a, type: 3}
+  - {fileID: 2800000, guid: cad4703928225874a827adb970cd4264, type: 3}
+  period: 1
 --- !u!135 &135876455487443678
 SphereCollider:
   m_ObjectHideFlags: 1

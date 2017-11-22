@@ -42,7 +42,7 @@ public class IngameButtons : MonoBehaviour {
 
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
-        //winScreen.gameObject.SetActive(false); // Win screen not visible at start.
+        winScreen.gameObject.SetActive(false); // Win screen not visible at start.
 
 
         playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
@@ -62,7 +62,8 @@ public class IngameButtons : MonoBehaviour {
     {
         canBuild = true;
         Debug.Log("Build Button pressed.");
-	}
+        upgradeMenu.gameObject.SetActive(false);
+    }
 
     public void OptionsButtonClick()
     {
@@ -111,8 +112,6 @@ public class IngameButtons : MonoBehaviour {
 
     public bool TurretUpgrade(GameObject turret, string turretType)
     { 
-    //public bool TurretUpgrade(GameObject turret)
-
         TurretSelected = turret;
         TurretType = turretType;
         bool canUpgrade = false;
