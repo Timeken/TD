@@ -15,10 +15,12 @@ public class Enemy : MonoBehaviour {
         currentHP = FullHP;
 
         GameObject goal = GameObject.Find("Goal");
+        GameObject spawn = GameObject.Find("Spawn");
 
         if (goal)
         {
-           GetComponent<NavMeshAgent>().destination = goal.transform.position;
+           GetComponent<NavMeshAgent>().Warp(spawn.transform.position);
+           GetComponent<NavMeshAgent>().SetDestination(goal.transform.position);
         }
     }
 
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour {
         return enemyDead;
     }
 
-     public void OnTriggerEnter(Collider collider)
+    public void OnTriggerEnter(Collider collider) //If enemy hit goal destroy enemy.
     {
         if (collider.name == "Goal")
         {
