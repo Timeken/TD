@@ -56,7 +56,7 @@ public class Spawn : MonoBehaviour {
     }
     private void Update()
     {
-        currentWaveText.text = "Wave number " + currentWave.ToString();
+        currentWaveText.text = "Wave: " + currentWave.ToString();
         if (currentWave == maxWave && GameObject.FindGameObjectWithTag("Enemy") == null) // Check if there is no enemy left in the final wave.
         {
             GameObject button = GameObject.FindGameObjectWithTag("UI");
