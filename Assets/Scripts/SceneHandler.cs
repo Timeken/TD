@@ -10,4 +10,10 @@ public class SceneHandler : MonoBehaviour {
         SceneManager.LoadScene(sceneToChangeTo);
     }
 
+    public void quitGame()
+    {
+        Application.Quit(); 
+        //This is only used on the Exit button in Scene 0, because it closes the game completely.
+    }
+
 }
