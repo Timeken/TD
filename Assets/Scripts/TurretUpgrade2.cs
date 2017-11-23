@@ -21,6 +21,8 @@ public class TurretUpgrade2 : Tower
 
     public Texture[] textures;
 
+    public AudioSource shootingSound2;
+
     private float nextActionTime = 0.0f;
     public float period = 1;
     public float ammo;
@@ -114,6 +116,7 @@ public class TurretUpgrade2 : Tower
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
+            shootingSound2.Play();
             ammo--;
             GameObject gameObject1 = Instantiate(projectile, barrelPoint1.position, Quaternion.identity);
             GameObject gameObject2 = Instantiate(projectile, barrelPoint2.position, Quaternion.identity);
@@ -129,6 +132,11 @@ public class TurretUpgrade2 : Tower
             changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
             changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
         }
+    }
+
+    public void setMyVolume(float volume)
+    {
+        shootingSound2.volume = volume;
     }
 
     private void OnTriggerEnter(Collider collider)

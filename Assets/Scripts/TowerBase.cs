@@ -112,7 +112,7 @@ public class TowerBase : Tower {
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
-            shootingSound.Play(); // Test test!!
+            shootingSound.Play(); 
             ammo--;
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             //TODO? add greater speed for projectile?
@@ -125,6 +125,11 @@ public class TowerBase : Tower {
             changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
             changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
         }
+    }
+
+    public void setMyVolume(float volume)
+    {
+        shootingSound.volume = volume;
     }
 
     private void OnTriggerEnter(Collider collider)

@@ -1740,7 +1740,6 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 1605314489}
   soundVolumeSlider: {fileID: 213038804}
   musicSource: {fileID: 341296315}
-  soundSource: {fileID: 0}
 --- !u!1001 &359532295
 Prefab:
   m_ObjectHideFlags: 0

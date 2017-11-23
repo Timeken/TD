@@ -7,7 +7,7 @@ public class Spawn : MonoBehaviour {
 
     public List<GameObject> enemyList;
 
-    public float waitTime = 20; // wait 20 sec until next wave.
+    public float waitTime = 5; // wait 20 sec until next wave.
     public float interval = 2;
     [SerializeField]
     Text currentWaveText;

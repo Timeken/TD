@@ -19,6 +19,8 @@ public class TurretUpgrade1 : Tower {
 
     public Texture[] textures;
 
+    public AudioSource shootingSound3;
+
     private float nextActionTime = 0.0f;
     public float period = 1;
     public float ammo;
@@ -112,6 +114,7 @@ public class TurretUpgrade1 : Tower {
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
+            shootingSound3.Play();
             ammo--;
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             //TODO? add greater speed for projectile?
@@ -124,6 +127,11 @@ public class TurretUpgrade1 : Tower {
             changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
             changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
         }
+    }
+
+    public void setMyVolume(float volume)
+    {
+        shootingSound3.volume = volume;
     }
 
     private void OnTriggerEnter(Collider collider)
