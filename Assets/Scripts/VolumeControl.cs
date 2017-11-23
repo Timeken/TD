@@ -10,6 +10,11 @@ public class VolumeControl : MonoBehaviour
     public Slider soundVolumeSlider;
     public AudioSource musicSource;
 
+    private void Start()
+    {
+        musicVolumeSlider.value = 0.1f; // Saved your eardrums.
+        musicSource.volume = musicVolumeSlider.value;
+    }
 
     void Update()
     {
@@ -31,7 +36,5 @@ public class VolumeControl : MonoBehaviour
             }
 
         }
-
-
     }
 }
