@@ -7,8 +7,8 @@ public class Spawn : MonoBehaviour {
 
     public List<GameObject> enemyList;
 
+    public float waitTime = 20; // wait 20 sec until next wave.
     public float interval = 2;
-    //public float time = 2;
     [SerializeField]
     Text currentWaveText;
 
@@ -20,15 +20,17 @@ public class Spawn : MonoBehaviour {
     int currentWave = 1;
     int maxWave = 5;
 
+    bool spawning = false;
+
     IngameButtons ingameButtons;
 
     // Use this for initialization
     void Start () {
-        InvokeRepeating("SpawnNext", interval, interval);
         spawningEnemy = wave.GetWave(currentWave);
     }
-	
-	void SpawnNext () {
+
+    void SpawnNext () {
+        print("hello");
         if (spawningEnemy[currentEnemy] != 0)
         {
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
@@ -50,12 +52,20 @@ public class Spawn : MonoBehaviour {
                 currentWave++;
                 spawningEnemy = wave.GetWave(currentWave);
                 currentEnemy = 0;
+                spawning = false;
+                CancelInvoke("SpawnNext");
             }
         }
         
     }
     private void Update()
     {
+        if (!spawning)
+        {
+            spawning = true;
+            InvokeRepeating("SpawnNext", waitTime, interval);
+        }
+
         currentWaveText.text = "Wave: " + currentWave.ToString();
         if (currentWave == maxWave && GameObject.FindGameObjectWithTag("Enemy") == null) // Check if there is no enemy left in the final wave.
         {
