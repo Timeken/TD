@@ -44,7 +44,6 @@ public class Spawn : MonoBehaviour {
         }
         if (--spawningEnemy[currentEnemy] <= 0)
         {
-
             currentEnemy++;
 
             if (spawningEnemy.Length == currentEnemy && currentWave != maxWave)
@@ -64,9 +63,14 @@ public class Spawn : MonoBehaviour {
         {
             spawning = true;
             InvokeRepeating("SpawnNext", waitTime, interval);
-        }
+            waitTime -= Time.deltaTime;
 
-        currentWaveText.text = "Wave: " + currentWave.ToString();
+            currentWaveText.text = waitTime.ToString();
+        }
+        
+            //currentWaveText.text = "Wave number" + waitTime.ToString();
+        
+        
         if (currentWave == maxWave && GameObject.FindGameObjectWithTag("Enemy") == null) // Check if there is no enemy left in the final wave.
         {
             GameObject button = GameObject.FindGameObjectWithTag("UI");
