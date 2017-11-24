@@ -63,10 +63,16 @@ public class TowerBase : Tower {
             {
                 try
                 {
-                    Vector3 direction = target.position - transform.position;
-                    Quaternion lookRotation = Quaternion.LookRotation(direction);
-                    Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
-                    rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                    
+                    //Vector3 direction = target.position - transform.position;
+                    //Quaternion lookRotation = Quaternion.LookRotation(direction);
+                    //Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
+                    //rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+
+                    
+
+                    rotatingPart.LookAt(target);
                 }
                 catch (MissingReferenceException) { }
             }

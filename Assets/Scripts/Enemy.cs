@@ -54,8 +54,7 @@ public class Enemy : MonoBehaviour {
     {
         if (collider.name == "Goal")
         {
-            Destroy(gameObject);
-            
+            Destroy(gameObject);            
         }
     }
 }
