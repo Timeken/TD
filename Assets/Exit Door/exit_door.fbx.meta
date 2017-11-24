@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 583ce6adad3c1354496fc77513315104
+timeCreated: 1511533566
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back
+    100002: bottom
+    100004: //RootNode
+    100006: left
+    100008: pCube8
+    100010: polySurface108
+    100012: polySurface118
+    100014: polySurface74
+    100016: polySurface77
+    100018: polySurface88
+    400000: back
+    400002: bottom
+    400004: //RootNode
+    400006: left
+    400008: pCube8
+    400010: polySurface108
+    400012: polySurface118
+    400014: polySurface74
+    400016: polySurface77
+    400018: polySurface88
+    2000000: back
+    2000002: bottom
+    2000004: left
+    2300000: pCube8
+    2300002: polySurface108
+    2300004: polySurface118
+    2300006: polySurface74
+    2300008: polySurface88
+    3300000: pCube8
+    3300002: polySurface108
+    3300004: polySurface118
+    3300006: polySurface74
+    3300008: polySurface88
+    4300000: polySurface74
+    4300002: polySurface88
+    4300004: pCube8
+    4300006: polySurface118
+    4300008: polySurface108
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: accessories
+    second: {fileID: 2100000, guid: d0e6ca6945895214b9eb0fc19cc0f93a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door
+    second: {fileID: 2100000, guid: 9014d7d22c1076242aa9ba6226761a21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame
+    second: {fileID: 2100000, guid: 7a918f6e6f10f4b45ab82bd7413a88d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handles
+    second: {fileID: 2100000, guid: 7db37da7891ac5f468f7db4aa48170e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shell
+    second: {fileID: 2100000, guid: df958bfb0f6a5a142960061ed4c03131, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
