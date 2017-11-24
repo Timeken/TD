@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerBase : Tower {
+public class TurretUpgrade1 : Tower {
 
     public Transform target;
     public List<GameObject> enemiesInRange;
@@ -17,9 +17,9 @@ public class TowerBase : Tower {
     public Transform rotatingPart;
     public Transform barrelPoint;
 
-    public AudioSource shootingSound;
-
     public Texture[] textures;
+
+    public AudioSource shootingSound3;
 
     private float nextActionTime = 0.0f;
     public float period = 1;
@@ -34,15 +34,16 @@ public class TowerBase : Tower {
         enemiesInRange = new List<GameObject>();
 
         Rotation = 4;
-        DMG = 25.0f;
+        DMG = 50.0f;
         Firerate = 2;
-        ammo = 10;
+        ammo = 15;
 
         InvokeRepeating("TimeToShoot", Firerate, Firerate);
     }
 
     void Update()
     {
+
         if (enemiesInRange.Count != 0)
         {
             enemyToShoot = enemiesInRange[0];
@@ -54,12 +55,29 @@ public class TowerBase : Tower {
             {
                 enemiesInRange.Remove(enemyToShoot);
             }
+
             if (ammo != 0)
             {
                 Vector3 direction = target.position - transform.position;
                 Quaternion lookRotation = Quaternion.LookRotation(direction);
                 Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
                 rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform == click.transform)
+                {
+                    GameObject button = GameObject.FindGameObjectWithTag("UI"); //check if turret is clicked and show upgrade menu.
+                    ingameButtons = button.GetComponent<IngameButtons>();
+                    ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade1");
+                    ammo = 15;
+                }
             }
         }
         if (ammo > 0 && changeTexture1.GetComponent<Renderer>().material.mainTexture != textures[2] &&
@@ -73,37 +91,21 @@ public class TowerBase : Tower {
         if (Time.time > nextActionTime)// Blink texture every seconed
         {
             nextActionTime += period;
-            if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[1] && 
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[1] && 
+            if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[1] &&
+                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[1] &&
                 changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[1])
             {
                 changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[0];
                 changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[0];
                 changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[0];
             }
-            else if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[0] && 
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[0] && 
+            else if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[0] &&
+                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[0] &&
                 changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[0])
             {
                 changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[1];
                 changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
                 changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray,out hit))
-            {
-                if (hit.transform == click.transform)
-                {
-                    GameObject button = GameObject.FindGameObjectWithTag("UI"); //check if turret is clicked and show upgrade menu.
-                    ingameButtons = button.GetComponent<IngameButtons>();
-                    ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretBase");
-                    ammo = 10;
-                }
             }
         }
     }
@@ -112,7 +114,7 @@ public class TowerBase : Tower {
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
-            shootingSound.Play(); 
+            shootingSound3.Play();
             ammo--;
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             //TODO? add greater speed for projectile?
@@ -129,7 +131,7 @@ public class TowerBase : Tower {
 
     public void setMyVolume(float volume)
     {
-        shootingSound.volume = volume;
+        shootingSound3.volume = volume;
     }
 
     private void OnTriggerEnter(Collider collider)

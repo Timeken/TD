@@ -5,60 +5,57 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
-    
-    public int FullHP, DMG, currentHP, dollarValue; // Maybe it's a problem that there are so many global variables, but, oh well.
 
-    Goal tempGoal = new Goal();
-    
+    public float FullHP, DMG, currentHP, dollarValue;
+
+    PlayerHandler playerHandler;
+
     public void Start()
     {
         currentHP = FullHP;
 
         GameObject goal = GameObject.Find("Goal");
+        GameObject spawn = GameObject.Find("Spawn");
 
         if (goal)
         {
-           GetComponent<NavMeshAgent>().destination = goal.transform.position;
+           GetComponent<NavMeshAgent>().Warp(spawn.transform.position);
+           GetComponent<NavMeshAgent>().SetDestination(goal.transform.position);
         }
     }
 
-    void Update()
+  /*  public int EnemyGetDMG()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            TakeDamage(30);  // Check to see if the HP bar works
-            print("Damage done!");     
-            
-            if(currentHP <= 0)
-            {
-                print("Enemy defeated!"); // Maybe make a method here. Maybe not.
-            }
-        }
-    }
+        return DMG;
+    }*/
 
-    public void TakeDamage(int enemydamage) // Gets called every time the minion takes damage.
+
+    public bool TakeDamage(float enemydamage, GameObject gameObject) // Gets called every time the minion takes damage.
     {
+        bool enemyDead = false;
+
         currentHP -= enemydamage; // Hpbar value is connected to currentHP, so it will change accordingly.
+        //check if enemy is dead
+        if (currentHP <= 0)
+        {
+            Destroy(gameObject);
+            enemyDead = true;
+
+            gameObject = GameObject.FindGameObjectWithTag("MainCamera");
+            playerHandler = gameObject.GetComponent<PlayerHandler>();
+
+            playerHandler.dollarValue += dollarValue;
+        }
+
+        return enemyDead;
     }
 
-
-    public void OnTriggerEnter(Collider collider)
+    public void OnTriggerEnter(Collider collider) //If enemy hit goal destroy enemy.
     {
         if (collider.name == "Goal")
         {
             Destroy(gameObject);
-
-            tempGoal.DecreaseHealth(DMG);
-            if (tempGoal.GetHealth() <= 0)
-            {
-                Destroy(GameObject.Find("Goal")); 
-                // We need to add some sorts of Game Over screen here, with a "Play again" button and a "Exit game"-button.
-            }
-        }
-
-        else if (collider.name == "projectile")
-        {
-            //TODO get dmg from projectile and decrease enemy hp.
+            
         }
     }
 }

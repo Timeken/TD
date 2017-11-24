@@ -17,6 +17,7 @@ public class Hpbar : MonoBehaviour
 
     public void Update()
     {
+        transform.rotation = Quaternion.identity;
         HPslider.value = myEnemy.currentHP; // Sets the slider's value to the current HP.
     }
 

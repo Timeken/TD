@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoalHPBar : MonoBehaviour {
-
+public class GoalHPBar : MonoBehaviour
+{
     public Slider GoalHpSlider;
-    Goal myGoal = new Goal();
+    public Text GoalHealthText; 
+    Goal myGoal;
 
-    // Use this for initialization
-    void Start () {
+    void Start()
+    {
         myGoal = GetComponent<Goal>();
-        GoalHpSlider.maxValue = myGoal.GoalHealth;
+        GoalHpSlider.maxValue = myGoal.GoalHealth; // Sets the max and min values of the goal's health bar.
         GoalHpSlider.minValue = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        GoalHpSlider.value = myGoal.GoalCurrentHealth;
-	}
+    }
+
+    void Update()
+    {
+        GoalHpSlider.value = myGoal.GoalCurrentHealth; // Updates the value on the goal's health bar.
+        GoalHealthText.text = GoalHpSlider.value.ToString() + "HP"; // Sets the text on the bar to the same value.
+    } 
+
 }

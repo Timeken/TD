@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/StartScreen.unity
+    guid: eff800ba71311344ebd66629b8e8bbeb
+  - enabled: 1
+    path: Assets/Bake.unity
+    guid: 33c9522f87007814599250d42f10c408
