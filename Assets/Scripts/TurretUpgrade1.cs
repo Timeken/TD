@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TurretUpgrade1 : Tower {
 
@@ -17,13 +18,16 @@ public class TurretUpgrade1 : Tower {
     public Transform rotatingPart;
     public Transform barrelPoint;
 
-    public Texture[] textures;
+    public Texture[] textures;//0 and 1 for blinking and 2 default.
 
     public AudioSource shootingSound3;
 
     private float nextActionTime = 0.0f;
     public float period = 1;
     public float ammo;
+    public float ammoMax = 15;
+
+    public Image ammoBar;
 
     IngameButtons ingameButtons;
 
@@ -36,7 +40,7 @@ public class TurretUpgrade1 : Tower {
         Rotation = 4;
         DMG = 50.0f;
         Firerate = 2;
-        ammo = 15;
+        ammo = ammoMax;
 
         InvokeRepeating("TimeToShoot", Firerate, Firerate);
     }
@@ -58,10 +62,14 @@ public class TurretUpgrade1 : Tower {
 
             if (ammo != 0)
             {
-                Vector3 direction = target.position - transform.position;
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
-                rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                try
+                {
+                    Vector3 direction = target.position - transform.position;
+                    Quaternion lookRotation = Quaternion.LookRotation(direction);
+                    Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
+                    rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                }
+                catch (MissingReferenceException) { }
             }
         }
 
@@ -76,7 +84,8 @@ public class TurretUpgrade1 : Tower {
                     GameObject button = GameObject.FindGameObjectWithTag("UI"); //check if turret is clicked and show upgrade menu.
                     ingameButtons = button.GetComponent<IngameButtons>();
                     ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade1");
-                    ammo = 15;
+                    ammo = ammoMax;
+                    ammoBar.fillAmount = ammo / ammoMax;// changeing ammo bar
                 }
             }
         }
@@ -116,8 +125,8 @@ public class TurretUpgrade1 : Tower {
         {
             shootingSound3.Play();
             ammo--;
+            ammoBar.fillAmount = ammo / ammoMax;// changeing ammo bar
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
-            //TODO? add greater speed for projectile?
             gameObject1.GetComponent<Projectile>().target = target;
             gameObject1.GetComponent<Projectile>().DMG = DMG;
         }

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour {
 
     public Transform target;
     public float DMG;
+    public float speed = 100;
 
     Enemy enemy;
 
@@ -14,7 +15,7 @@ public class Projectile : MonoBehaviour {
         if (target)
         {
             Vector3 dir = target.position - transform.position;
-            GetComponent<Rigidbody>().velocity = dir.normalized * 10;
+            GetComponent<Rigidbody>().velocity = dir.normalized * speed;
         }
         else
         {
