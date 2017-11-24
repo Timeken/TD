@@ -73,10 +73,8 @@ public class IngameButtons : MonoBehaviour {
         print("Options Button pressed.");
     }
 
-
     public void Upgrade1ButtonClick()
     {
-
         switch (TurretType)
         {
             case "turretBase":
@@ -118,6 +116,10 @@ public class IngameButtons : MonoBehaviour {
         upgradeMenu.gameObject.SetActive(true);
 
         return canUpgrade;
+        /*if ()
+        {
+
+        }*/
     }
 
 }
