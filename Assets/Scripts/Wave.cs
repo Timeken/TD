@@ -6,8 +6,8 @@ public class Wave : MonoBehaviour {
 
     public int[] GetWave(int currentWave)
     {
-        int[] enemyTypes = new int[5];// chage this if you add more enemies
-        // Add more waves here
+        int[] enemyTypes = new int[5];
+
         switch (currentWave)
         {
             case 1:

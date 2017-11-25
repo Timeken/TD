@@ -10,15 +10,15 @@ public class Hpbar : MonoBehaviour
 
     public void Start()
     {
-      myEnemy = GetComponent<Enemy>(); // The enemy that the bar is connected to.
-        HPslider.maxValue = myEnemy.FullHP; // Sets the slider's max value to the enemy's max health.
+      myEnemy = GetComponent<Enemy>(); 
+        HPslider.maxValue = myEnemy.FullHP; 
         HPslider.minValue = 0; 
     }
 
     public void Update()
     {
         transform.rotation = Quaternion.identity;
-        HPslider.value = myEnemy.currentHP; // Sets the slider's value to the current HP.
+        HPslider.value = myEnemy.currentHP; 
     }
 
 }

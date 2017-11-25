@@ -39,23 +39,16 @@ public class IngameButtons : MonoBehaviour {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
 
-
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
         winScreen.gameObject.SetActive(false); // Win screen not visible at start.
 
-
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
+        playerGold.text = playerHandler.dollarValue.ToString();
     }
 
     private void Update()
     {
-        playerGold.text = playerHandler.dollarValue.ToString() + " Space dollars";
-
-        if (playerHandler.dollarValue == 1)
-        {
-            playerGold.text = playerHandler.dollarValue.ToString() + " Space dollar"; // Grammar!!!
-        }
+        playerGold.text = playerHandler.dollarValue.ToString();
     }
 
     public void BuildButtonClick()
@@ -116,10 +109,6 @@ public class IngameButtons : MonoBehaviour {
         upgradeMenu.gameObject.SetActive(true);
 
         return canUpgrade;
-        /*if ()
-        {
-
-        }*/
     }
 
 }

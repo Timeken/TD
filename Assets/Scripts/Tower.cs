@@ -6,5 +6,4 @@ public class Tower : MonoBehaviour {
 
     public float DMG, Firerate, Range, Rotation;
 
-
 }

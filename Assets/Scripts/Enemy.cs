@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -24,18 +23,13 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-  /*  public int EnemyGetDMG()
-    {
-        return DMG;
-    }*/
-
 
     public bool TakeDamage(float enemydamage, GameObject gameObject) // Gets called every time the minion takes damage.
     {
         bool enemyDead = false;
 
-        currentHP -= enemydamage; // Hpbar value is connected to currentHP, so it will change accordingly.
-        //check if enemy is dead
+        currentHP -= enemydamage; 
+
         if (currentHP <= 0)
         {
             Destroy(gameObject);
@@ -50,7 +44,7 @@ public class Enemy : MonoBehaviour {
         return enemyDead;
     }
 
-    public void OnTriggerEnter(Collider collider) //If enemy hit goal destroy enemy.
+    public void OnTriggerEnter(Collider collider) 
     {
         if (collider.name == "Goal")
         {

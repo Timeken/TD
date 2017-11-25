@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class VolumeControl : MonoBehaviour
 {
-
     public Slider musicVolumeSlider;
     public Slider soundVolumeSlider;
     public AudioSource musicSource;
 
     private void Start()
     {
-        musicVolumeSlider.value = 0.1f; // Saved your eardrums.
+        musicVolumeSlider.value = 0.1f;
         musicSource.volume = musicVolumeSlider.value;
     }
 
@@ -20,7 +19,7 @@ public class VolumeControl : MonoBehaviour
     {
         musicSource.volume = musicVolumeSlider.value;
 
-        if (GameObject.FindGameObjectWithTag("Turret") != null) // I hope this isn't too ugly.
+        if (GameObject.FindGameObjectWithTag("Turret") != null) 
         {
             if (FindObjectOfType<TowerBase>() != null)
             {
@@ -34,7 +33,6 @@ public class VolumeControl : MonoBehaviour
             {
                 FindObjectOfType<TurretUpgrade2>().setMyVolume(soundVolumeSlider.value);
             }
-
         }
     }
 }
