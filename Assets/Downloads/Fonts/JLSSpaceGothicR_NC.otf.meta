@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 05402a9720f801f4ebeeebff70869e5f
+timeCreated: 1511641688
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JLS Space GothicR
+  fontNames:
+  - JLS Space GothicR
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour
     [SerializeField]
     GameObject gameOverScreen;
 
-    // Use this for initialization
+
     void Start()
     {
         GoalCurrentHealth = GoalHealth;
@@ -19,7 +19,6 @@ public class Goal : MonoBehaviour
     {
          if (GoalCurrentHealth <= 0f)
         {
-            print("GAME OVER!");
             Destroy(GameObject.Find("Goal"));
             gameOverScreen.gameObject.SetActive(true);
             Time.timeScale = 0;
@@ -36,7 +35,6 @@ public class Goal : MonoBehaviour
             if (collidingEnemy.GetComponent<Minion1>())
             {
                 GoalCurrentHealth -= collidingEnemy.GetComponent<Minion1>().EnemyGetDMG();
-                print("An UFO has collided with the goal.");
             }
         }
     }

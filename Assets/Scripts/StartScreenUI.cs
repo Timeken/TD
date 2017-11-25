@@ -10,7 +10,6 @@ public class StartScreenUI : MonoBehaviour {
 
     public GameObject aboutPanel;
 
-	// Use this for initialization
 	void Start () {
         aboutPanel.gameObject.SetActive(false);
 	}

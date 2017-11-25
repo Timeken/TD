@@ -22,7 +22,6 @@ public class OptionsUI : MonoBehaviour {
 
     public void ExitButtonClick()
     {
-        // To do: Make so that when the exit button is pressed, Start Screen will activate.
         print("Exit Button pressed.");
     }
 }

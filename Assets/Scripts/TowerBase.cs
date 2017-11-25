@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TowerBase : Tower {
+public class TowerBase : Tower
+{
 
     public Transform target;
     public List<GameObject> enemiesInRange;
@@ -12,9 +13,11 @@ public class TowerBase : Tower {
 
     public GameObject enemyToShoot;
     public GameObject click;
+
     public GameObject changeTexture1;
     public GameObject changeTexture2;
     public GameObject changeTexture3;
+    public GameObject changeTexture;
 
     public Transform rotatingPart;
     public Transform barrelPoint;
@@ -28,7 +31,7 @@ public class TowerBase : Tower {
     public float ammo;
     public float ammoMax = 10;
 
-    public Image ammoBar;
+    //public Image ammoBar;
 
     IngameButtons ingameButtons;
 
@@ -63,77 +66,80 @@ public class TowerBase : Tower {
             {
                 try
                 {
-                    Vector3 direction = target.position - transform.position;
-                    Quaternion lookRotation = Quaternion.LookRotation(direction);
-                    Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
-                    rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+                    //Vector3 direction = target.position - transform.position;
+                    //Quaternion lookRotation = Quaternion.LookRotation(direction);
+                    //Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
+                    //rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+
+
+
+                    rotatingPart.LookAt(target);
                 }
                 catch (MissingReferenceException) { }
             }
         }
-        if (ammo > 0 && changeTexture1.GetComponent<Renderer>().material.mainTexture != textures[2] &&
-                changeTexture2.GetComponent<Renderer>().material.mainTexture != textures[2] &&
-                changeTexture3.GetComponent<Renderer>().material.mainTexture != textures[2]) // if ammo is > 0 and the texture is not changed change it.
+
+        if (ammo > 0 && changeTexture.GetComponent<Renderer>().material.mainTexture != textures[2])
         {
-            changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[2];
-            changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[2];
-            changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[2];
+            ChangeTexture(textures[2]);
         }
-        if (Time.time > nextActionTime)// Blink texture every seconed
+
+        if (ammo == 0 && Time.time > nextActionTime)// Blink texture every seconed
         {
             nextActionTime += period;
-            if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[1] && 
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[1] && 
-                changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[1])
+            if (changeTexture.GetComponent<Renderer>().material.mainTexture != textures[1])
             {
-                changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[0];
-                changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[0];
-                changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[0];
+                ChangeTexture(textures[1]);
             }
-            else if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[0] && 
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[0] && 
-                changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[0])
+            else if (changeTexture.GetComponent<Renderer>().material.mainTexture == textures[1])
             {
-                changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[1];
-                changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
-                changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
+                ChangeTexture(textures[0]);
             }
         }
+
 
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform == click.transform)
                 {
                     GameObject button = GameObject.FindGameObjectWithTag("UI"); //check if turret is clicked and show upgrade menu.
                     ingameButtons = button.GetComponent<IngameButtons>();
                     ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretBase");
-                    ammo = ammoMax;
-                    ammoBar.fillAmount = ammo / ammoMax; // changeing ammo bar
+                    if (ammo == 0)
+                    {
+                        ammo = ammoMax;
+                    }
+                    
                 }
             }
         }
     }
+    public void ChangeTexture(Texture texture)
+    {
+        changeTexture.GetComponent<Renderer>().material.mainTexture = texture;
+    }
+
 
     private void TimeToShoot()
     {
         if (enemiesInRange.Count != 0 && ammo > 0)
         {
-            shootingSound.Play(); 
+            shootingSound.Play();
             ammo--;
-            ammoBar.fillAmount = ammo / ammoMax; // changeing ammo bar
+            //ammoBar.fillAmount = ammo / ammoMax; // changeing ammo bar
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             gameObject1.GetComponent<Projectile>().target = target;
             gameObject1.GetComponent<Projectile>().DMG = DMG;
         }
         else if (ammo <= 0)
         {
-            changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[1];
-            changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
-            changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
+            changeTexture.GetComponent<Renderer>().material.mainTexture = textures[1];
         }
     }
 

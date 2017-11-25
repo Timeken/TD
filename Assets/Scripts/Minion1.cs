@@ -1,14 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Minion1 : Enemy {
-
-   // bool isDamaged = false;
-
-    GameObject enemy;
-
+public class Minion1 : Enemy
+{
     public void SetValues(float hp, float damage, int value)
     {
         this.FullHP = hp;

@@ -12,14 +12,14 @@ public class GoalHPBar : MonoBehaviour
     void Start()
     {
         myGoal = GetComponent<Goal>();
-        GoalHpSlider.maxValue = myGoal.GoalHealth; // Sets the max and min values of the goal's health bar.
+        GoalHpSlider.maxValue = myGoal.GoalHealth; 
         GoalHpSlider.minValue = 0;
     }
 
     void Update()
     {
-        GoalHpSlider.value = myGoal.GoalCurrentHealth; // Updates the value on the goal's health bar.
-        GoalHealthText.text = GoalHpSlider.value.ToString() + "HP"; // Sets the text on the bar to the same value.
+        GoalHpSlider.value = myGoal.GoalCurrentHealth; 
+        GoalHealthText.text = GoalHpSlider.value.ToString() + "HP"; 
     } 
 
 }

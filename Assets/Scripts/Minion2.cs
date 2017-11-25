@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Minion2 : Enemy
 {
-    //bool isDamaged = false;
-
     public void SetValues(float hp, float damage, int value)
     {
         this.FullHP = hp;
@@ -17,6 +15,5 @@ public class Minion2 : Enemy
     {
         return DMG;
     }
-
 
 }
