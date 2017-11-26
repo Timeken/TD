@@ -7,7 +7,7 @@ public class SceneHandler : MonoBehaviour {
 
 	public void changeMyScene(int sceneToChangeTo)
     {
-        SceneManager.LoadScene(sceneToChangeTo);
+        SceneManager.LoadScene(sceneToChangeTo);     
     }
 
     public void quitGame()

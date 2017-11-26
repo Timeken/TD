@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4044449986193734}
-  - component: {fileID: 114878181514159072}
   m_Layer: 0
   m_Name: TurretTemp
   m_TagString: Untagged
@@ -405,17 +404,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114878181514159072
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1060133401347758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebca80d9bc834b7478bd61603a36c2cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135491201861361962
 SphereCollider:
   m_ObjectHideFlags: 1
