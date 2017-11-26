@@ -12,9 +12,7 @@ public class TurretUpgrade2 : Tower
 
     public GameObject enemyToShoot;
     public GameObject click;
-    public GameObject changeTexture1;
-    public GameObject changeTexture2;
-    public GameObject changeTexture3;
+    public GameObject changeTexture;
 
     public Transform rotatingPart;
     public Transform barrelPoint1;
@@ -28,8 +26,6 @@ public class TurretUpgrade2 : Tower
     public float period = 1;
     public float ammo;
     public float ammoMax = 20;
-
-    public Image ammoBar;
 
     IngameButtons ingameButtons;
 
@@ -66,6 +62,7 @@ public class TurretUpgrade2 : Tower
             {
                 try
                 {
+                    //Smooth rotation
                     Vector3 direction = target.position - transform.position;
                     Quaternion lookRotation = Quaternion.LookRotation(direction);
                     Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
@@ -87,38 +84,31 @@ public class TurretUpgrade2 : Tower
                     ingameButtons = button.GetComponent<IngameButtons>();
                     ingameButtons.TurretUpgrade(transform.parent.gameObject, "turretUpgrade2");
                     ammo = ammoMax;
-                    ammoBar.fillAmount = ammo / ammoMax;// changeing ammo bar
                 }
             }
         }
-        if (ammo > 0 && changeTexture1.GetComponent<Renderer>().material.mainTexture != textures[2] &&
-                changeTexture2.GetComponent<Renderer>().material.mainTexture != textures[2] &&
-                changeTexture3.GetComponent<Renderer>().material.mainTexture != textures[2]) // if ammo is > 0 and the texture is not changed change it.
+        if (ammo > 0 && changeTexture.GetComponent<Renderer>().material.mainTexture != textures[2]) // if ammo is > 0 and the texture is not changed change it.
         {
-            changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[2];
-            changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[2];
-            changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[2];
+            ChangeTexture(textures[2]);
         }
-        if (Time.time > nextActionTime)// Blink texture every seconed
+
+        if (ammo == 0 && Time.time > nextActionTime)// Blink texture every seconed
         {
             nextActionTime += period;
-            if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[1] &&
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[1] &&
-                changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[1])
+            if (changeTexture.GetComponent<Renderer>().material.mainTexture != textures[1])
             {
-                changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[0];
-                changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[0];
-                changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[0];
+                ChangeTexture(textures[1]);
             }
-            else if (changeTexture1.GetComponent<Renderer>().material.mainTexture == textures[0] &&
-                changeTexture2.GetComponent<Renderer>().material.mainTexture == textures[0] &&
-                changeTexture3.GetComponent<Renderer>().material.mainTexture == textures[0])
+            else if (changeTexture.GetComponent<Renderer>().material.mainTexture == textures[1])
             {
-                changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[1];
-                changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
-                changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
+                ChangeTexture(textures[0]);
             }
         }
+    }
+
+    public void ChangeTexture(Texture texture)
+    {
+        changeTexture.GetComponent<Renderer>().material.mainTexture = texture;
     }
 
     private void TimeToShoot()
@@ -127,7 +117,6 @@ public class TurretUpgrade2 : Tower
         {
             shootingSound2.Play();
             ammo--;
-            ammoBar.fillAmount = ammo / ammoMax;// changeing ammo bar
             GameObject gameObject1 = Instantiate(projectile, barrelPoint1.position, Quaternion.identity);
             GameObject gameObject2 = Instantiate(projectile, barrelPoint2.position, Quaternion.identity);
             gameObject1.GetComponent<Projectile>().target = target;
@@ -137,9 +126,7 @@ public class TurretUpgrade2 : Tower
         }
         else if (ammo <= 0)
         {
-            changeTexture1.GetComponent<Renderer>().material.mainTexture = textures[1];
-            changeTexture2.GetComponent<Renderer>().material.mainTexture = textures[1];
-            changeTexture3.GetComponent<Renderer>().material.mainTexture = textures[1];
+            changeTexture.GetComponent<Renderer>().material.mainTexture = textures[1];
         }
     }
 

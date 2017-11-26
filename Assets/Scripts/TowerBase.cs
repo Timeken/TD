@@ -14,9 +14,6 @@ public class TowerBase : Tower
     public GameObject enemyToShoot;
     public GameObject click;
 
-    public GameObject changeTexture1;
-    public GameObject changeTexture2;
-    public GameObject changeTexture3;
     public GameObject changeTexture;
 
     public Transform rotatingPart;
@@ -30,8 +27,6 @@ public class TowerBase : Tower
     public float period = 1;
     public float ammo;
     public float ammoMax = 10;
-
-    //public Image ammoBar;
 
     IngameButtons ingameButtons;
 
@@ -66,22 +61,17 @@ public class TowerBase : Tower
             {
                 try
                 {
-
-                    //Vector3 direction = target.position - transform.position;
-                    //Quaternion lookRotation = Quaternion.LookRotation(direction);
-                    //Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
-                    //rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-
-
-
-
-                    rotatingPart.LookAt(target);
+                    //Smooth rotation
+                    Vector3 direction = target.position - transform.position;
+                    Quaternion lookRotation = Quaternion.LookRotation(direction);
+                    Vector3 rotation = Quaternion.Lerp(rotatingPart.rotation, lookRotation, Time.deltaTime * Rotation).eulerAngles;
+                    rotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
                 }
                 catch (MissingReferenceException) { }
             }
         }
 
-        if (ammo > 0 && changeTexture.GetComponent<Renderer>().material.mainTexture != textures[2])
+        if (ammo > 0 && changeTexture.GetComponent<Renderer>().material.mainTexture != textures[2]) // if ammo is > 0 and the texture is not changed change it.
         {
             ChangeTexture(textures[2]);
         }
