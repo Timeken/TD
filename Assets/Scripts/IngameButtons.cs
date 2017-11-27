@@ -19,7 +19,7 @@ public class IngameButtons : MonoBehaviour {
     private Sprite speedUpSprite, normalSpeedSprite;
 
     public bool canBuild;
-    public bool optionsButtonPressed;
+    private bool optionsButtonPressed;
     private bool isShowing;
     private bool normalTime;
 

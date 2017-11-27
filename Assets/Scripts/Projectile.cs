@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
     public Transform target;
     public float DMG;
-    public float speed = 100;
+    private float speed = 100;
 
     Enemy enemy;
 

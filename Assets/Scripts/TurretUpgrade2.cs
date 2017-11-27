@@ -23,7 +23,7 @@ public class TurretUpgrade2 : Tower
     public AudioSource shootingSound2;
 
     private float nextActionTime = 0.0f;
-    public float period = 1;
+    private float period = 1;
     public float ammo;
     public float ammoMax = 20;
 

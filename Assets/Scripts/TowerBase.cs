@@ -24,7 +24,7 @@ public class TowerBase : Tower
     public Texture[] textures; //0 and 1 for blinking and 2 default.
 
     private float nextActionTime = 0;
-    public float period = 1;
+    private float period = 1;
     public float ammo;
     public float ammoMax = 10;
 
@@ -122,7 +122,6 @@ public class TowerBase : Tower
         {
             shootingSound.Play();
             ammo--;
-            //ammoBar.fillAmount = ammo / ammoMax; // changeing ammo bar
             GameObject gameObject1 = Instantiate(projectile, barrelPoint.position, Quaternion.identity);
             gameObject1.GetComponent<Projectile>().target = target;
             gameObject1.GetComponent<Projectile>().DMG = DMG;
