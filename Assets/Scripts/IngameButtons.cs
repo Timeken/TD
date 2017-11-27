@@ -46,6 +46,7 @@ public class IngameButtons : MonoBehaviour {
         buildCancelButton.gameObject.SetActive(false); // Cancel button when building is not visible at start.
 
         playerGold.text = playerHandler.dollarValue.ToString();
+        Time.timeScale = 1;
     }
 
     private void Update()

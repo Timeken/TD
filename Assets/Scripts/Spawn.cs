@@ -31,6 +31,7 @@ public class Spawn : MonoBehaviour {
     // Use this for initialization
     void Start () {
         spawningEnemy = wave.GetWave(currentWave);
+        downTimer = 21;
     }
 
     void SpawnNext () {
@@ -69,7 +70,7 @@ public class Spawn : MonoBehaviour {
             InvokeRepeating("SpawnNext", waitTime, interval);
         }
         
-        if (Time.time > nextActionTime)//Next wave timer
+        if (Time.timeSinceLevelLoad > nextActionTime)//Next wave timer
         {
             nextActionTime += period;
             if (downTimer >= 1)
