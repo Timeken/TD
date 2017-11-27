@@ -9,8 +9,4 @@ public class PlayerHandler : MonoBehaviour {
 	void Start () {
         dollarValue = 100;
 	}
-	
-	void Update () {
-		
-	}
 }

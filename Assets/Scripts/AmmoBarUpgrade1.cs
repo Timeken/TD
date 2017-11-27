@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class AmmoBarUpgrade1 : MonoBehaviour {
 
-    public Slider ammoSlider;
+    [SerializeField]
+    private Slider ammoSlider;
     TurretUpgrade1 myTower;
 
     void Start()

@@ -20,5 +20,4 @@ public class Hpbar : MonoBehaviour
         HPslider.transform.rotation = Quaternion.identity;
         HPslider.value = myEnemy.currentHP; 
     }
-
 }

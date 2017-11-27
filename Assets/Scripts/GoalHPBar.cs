@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class GoalHPBar : MonoBehaviour
 {
-    public Slider GoalHpSlider;
-    public Text GoalHealthText; 
+    [SerializeField]
+    private Slider GoalHpSlider;
+    [SerializeField]
+    private Text GoalHealthText; 
     Goal myGoal;
 
     void Start()
@@ -21,5 +23,4 @@ public class GoalHPBar : MonoBehaviour
         GoalHpSlider.value = myGoal.GoalCurrentHealth; 
         GoalHealthText.text = GoalHpSlider.value.ToString() + "HP"; 
     } 
-
 }

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public float GoalHealth = 77f, GoalCurrentHealth;
+    public float GoalHealth = 100f, GoalCurrentHealth;
     [SerializeField]
     GameObject gameOverScreen;
-
 
     void Start()
     {
@@ -41,4 +40,4 @@ public class Goal : MonoBehaviour
             GoalCurrentHealth -= collidingEnemy.GetComponent<Minion2>().EnemyGetDMG();
             }
     }
-    }
+}

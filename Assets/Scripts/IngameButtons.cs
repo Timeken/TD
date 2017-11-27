@@ -9,8 +9,10 @@ public class IngameButtons : MonoBehaviour {
     private BuildSpot buildSpot;
     PlayerHandler playerHandler;
 
-    public Text playerGold;
-
+    [SerializeField]
+    private Text playerGold;
+    public Button buildCancelButton;
+    private Button speedButton;
     [SerializeField]
     private Image speedButtonImage;
     [SerializeField]
@@ -18,25 +20,20 @@ public class IngameButtons : MonoBehaviour {
 
     public bool canBuild;
     public bool optionsButtonPressed;
+    private bool isShowing;
+    private bool normalTime;
 
     public float TurretUpgrade1Cost = 50, TurretUpgrade2Cost = 150;
 
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
     public GameObject winScreen;
-    public Button buildCancelButton;
-    private Button speedButton;
 
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
-
     private GameObject TurretSelected;
+
     private string TurretType;
-
-
-    private bool isShowing;
-    private bool normalTime;
-
 
     private void Awake()
     {
@@ -58,7 +55,7 @@ public class IngameButtons : MonoBehaviour {
         Time.timeScale = 1;
     }
 
-    private void Update()
+    public void Update()
     {
         playerGold.text = playerHandler.dollarValue.ToString();
     }
@@ -99,11 +96,10 @@ public class IngameButtons : MonoBehaviour {
         if (normalTime == false)
         {
             Time.timeScale = 2;
-            print("Speeeeeed!!!");
+            print("Speed x2");
             speedButtonImage.sprite = normalSpeedSprite;
         }
     }
-
 
     public void Upgrade1ButtonClick()
     {
@@ -149,5 +145,4 @@ public class IngameButtons : MonoBehaviour {
 
         return canUpgrade;
     }
-
 }

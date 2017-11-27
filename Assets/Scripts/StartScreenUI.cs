@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class StartScreenUI : MonoBehaviour {
 
-    public Button aboutButton;
-    public Button aboutExitButton;
-
-    public GameObject aboutPanel;
+    [SerializeField]
+    private Button aboutButton, aboutExitButton;
+    [SerializeField]
+    private GameObject aboutPanel;
 
 	void Start () {
         aboutPanel.gameObject.SetActive(false);

@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour {
     }
 
 
-    public bool TakeDamage(float enemydamage, GameObject gameObject) // Gets called every time the minion takes damage.
+    public bool TakeDamage(float enemydamage, GameObject gameObject) 
     {
         bool enemyDead = false;
 
