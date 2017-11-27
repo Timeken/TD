@@ -12,6 +12,7 @@ public class VolumeControl : MonoBehaviour
     private void Start()
     {
         musicVolumeSlider.value = 0.1f;
+        soundVolumeSlider.value = 0.5f;
         musicSource.volume = musicVolumeSlider.value;
     }
 
