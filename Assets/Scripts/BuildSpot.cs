@@ -35,6 +35,7 @@ public class BuildSpot : MonoBehaviour {
             Destroy(DestroyTemp);
             Buildt = true;
             ingameButtons.canBuild = false;
+            ingameButtons.buildCancelButton.gameObject.SetActive(false); // cancel button disappears.
         }
     }
     private void OnMouseEnter()

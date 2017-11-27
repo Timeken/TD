@@ -13,7 +13,8 @@ public class SceneHandler : MonoBehaviour {
     public void quitGame()
     {
         Application.Quit(); 
-        //This is only used on the Exit button in Scene 0, because it closes the game completely.
+        //Only used on Exit buttons, as it completely shuts off the game. Does not work in Unity and is not supposed to. 
+        // To test this, Build the game first. :)
     }
 
 }

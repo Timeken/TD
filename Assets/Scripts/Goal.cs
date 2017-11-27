@@ -36,5 +36,9 @@ public class Goal : MonoBehaviour
             {
                 GoalCurrentHealth -= collidingEnemy.GetComponent<Minion1>().EnemyGetDMG();
             }
-        }
+            if (collidingEnemy.GetComponent<Minion2>())
+            {
+            GoalCurrentHealth -= collidingEnemy.GetComponent<Minion2>().EnemyGetDMG();
+            }
+    }
     }

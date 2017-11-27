@@ -18,6 +18,7 @@ public class IngameButtons : MonoBehaviour {
     public GameObject upgradeMenu;
     public GameObject optionsMenu;
     public GameObject winScreen;
+    public Button buildCancelButton;
 
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
@@ -42,6 +43,7 @@ public class IngameButtons : MonoBehaviour {
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
         winScreen.gameObject.SetActive(false); // Win screen not visible at start.
+        buildCancelButton.gameObject.SetActive(false); // Cancel button when building is not visible at start.
 
         playerGold.text = playerHandler.dollarValue.ToString();
     }
@@ -56,6 +58,13 @@ public class IngameButtons : MonoBehaviour {
         canBuild = true;
         Debug.Log("Build Button pressed.");
         upgradeMenu.gameObject.SetActive(false);
+        buildCancelButton.gameObject.SetActive(true); // cancel button becomes active.
+    }
+
+    public void buildCancelButtonClick()
+    {
+        canBuild = false;       
+        buildCancelButton.gameObject.SetActive(false);
     }
 
     public void OptionsButtonClick()
