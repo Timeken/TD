@@ -10,6 +10,12 @@ public class IngameButtons : MonoBehaviour {
     PlayerHandler playerHandler;
 
     public Text playerGold;
+
+    [SerializeField]
+    private Image speedButtonImage;
+    [SerializeField]
+    private Sprite speedUpSprite, normalSpeedSprite;
+
     public bool canBuild;
     public bool optionsButtonPressed;
 
@@ -19,6 +25,7 @@ public class IngameButtons : MonoBehaviour {
     public GameObject optionsMenu;
     public GameObject winScreen;
     public Button buildCancelButton;
+    private Button speedButton;
 
     public GameObject TurretUpgrade1;
     public GameObject TurretUpgrade2;
@@ -28,11 +35,13 @@ public class IngameButtons : MonoBehaviour {
 
 
     private bool isShowing;
+    private bool normalTime;
 
 
     private void Awake()
     {
         instance = this;
+        normalTime = true;
     }
 
     private void Start()
@@ -75,6 +84,26 @@ public class IngameButtons : MonoBehaviour {
         Time.timeScale = 0; // Pauses the game while the Options window is open. 
         print("Options Button pressed.");
     }
+
+    public void SpeedUpButtonClick()
+    {
+        normalTime = !normalTime;
+
+        if (normalTime == true)
+        {
+            Time.timeScale = 1;
+            print("Speed is normal.");
+            speedButtonImage.sprite = speedUpSprite;
+        }
+
+        if (normalTime == false)
+        {
+            Time.timeScale = 2;
+            print("Speeeeeed!!!");
+            speedButtonImage.sprite = normalSpeedSprite;
+        }
+    }
+
 
     public void Upgrade1ButtonClick()
     {
