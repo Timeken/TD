@@ -32,12 +32,14 @@ public class TowerBase : Tower
 
     Enemy enemy;
 
-    private void Start()
+    private void Start() // Här ändrar du hur mycket skada grund-turrets gör.
     {
         enemiesInRange = new List<GameObject>();
 
         Rotation = 4;
-        DMG = 25.0f;
+
+        /*här!*/DMG = 25.0f;/*här!*/ //Rör inte f:et 
+
         Firerate = 2;
         ammo = ammoMax;
 

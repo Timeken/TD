@@ -31,12 +31,12 @@ public class TurretUpgrade2 : Tower
 
     Enemy enemy;
 
-    private void Start()
+    private void Start()//Här ändrar du hur mycket skada turrets Uppgradering 2 gör.
     {
         enemiesInRange = new List<GameObject>();
 
         Rotation = 4;
-        DMG = 10.0f;
+        /*här!*/DMG = 10.0f;/*här!*/
         Firerate = 0.5f;
         ammo = ammoMax;
 

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public float GoalHealth = 100f, GoalCurrentHealth;
+    // GoalHealth är målets maximala HP!
+    public float GoalHealth = 100f, GoalCurrentHealth;  //GoalHealth ska alltid ha ett f efter siffrorna!
+
+
+
+
     [SerializeField]
     GameObject gameOverScreen;
 

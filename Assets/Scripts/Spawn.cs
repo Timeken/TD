@@ -33,18 +33,28 @@ public class Spawn : MonoBehaviour {
         downTimer = 21;
     }
 
+
+
+
+    // Här ändrar du fiendernas HP, DMG och hur mycket Space dollars man får när de dör.
     void SpawnNext () {
         if (spawningEnemy[currentEnemy] != 0)
         {
             Instantiate(enemyList[currentEnemy], transform.position, Quaternion.identity);
             if (enemyList[currentEnemy].GetComponent<Minion1>() == null)
             {
-                enemyList[currentEnemy].GetComponent<Minion2>().SetValues(300, 10, 10); // HP, damage, value
+                enemyList[currentEnemy].GetComponent<Minion2>().SetValues/*här!*/(300, 10, 10)/*här!*/ ;  // SVÅRA FIENDENS HP, damage, value
             } else
             {
-                enemyList[currentEnemy].GetComponent<Minion1>().SetValues(100, 5, 5); // HP, damage, value
+                enemyList[currentEnemy].GetComponent<Minion1>().SetValues/*här!*/(100, 5, 5)/*här!*/  ;   // LÄTTA FIENDENS HP, damage, value
             }
         }
+
+
+
+
+
+
         if (--spawningEnemy[currentEnemy] <= 0)
         {
             currentEnemy++;
