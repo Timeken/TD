@@ -536,6 +536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bf769a6bbe2f349953c49268dc8107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoalHealth: 77
+  GoalHealth: 1000
   GoalCurrentHealth: 0
   gameOverScreen: {fileID: 0}
