@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
 
     public float FullHP, DMG, currentHP, dollarValue;
+    public GameObject deathEffect;
+
 
     PlayerHandler playerHandler;
 
@@ -34,7 +36,7 @@ public class Enemy : MonoBehaviour {
         {
             Destroy(gameObject);
             enemyDead = true;
-
+            Instantiate(deathEffect, gameObject.transform.position, Quaternion.identity);
             gameObject = GameObject.FindGameObjectWithTag("MainCamera");
             playerHandler = gameObject.GetComponent<PlayerHandler>();
 

@@ -11,10 +11,18 @@ public class OptionsUI : MonoBehaviour {
     Slider musicVolumeSlider, soundVolumeSlider;
     [SerializeField]
     GameObject optionsMenu;
+    [SerializeField]
+    private AudioSource optionsButtonsClickSound;
 
+    [SerializeField]
+    IngameButtons mybuttons;
 
     public void ContinueButtonClick()
     {
+        GameObject button = GameObject.FindGameObjectWithTag("UI");
+        mybuttons = button.GetComponent<IngameButtons>();
+        mybuttons.PlayButtonSound();
+        //optionsButtonsClickSound.Play();
         optionsMenu.gameObject.SetActive(false);
         Time.timeScale = 1; // Starts the game again when Continue is pressed.
         print("Continue Button pressed.");
@@ -22,6 +30,7 @@ public class OptionsUI : MonoBehaviour {
 
     public void ExitButtonClick()
     {
+        optionsButtonsClickSound.Play();
         print("Exit Button pressed.");
     }
 }

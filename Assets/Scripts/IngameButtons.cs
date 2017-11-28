@@ -10,6 +10,9 @@ public class IngameButtons : MonoBehaviour {
     PlayerHandler playerHandler;
 
     [SerializeField]
+    private AudioSource buttonClickSound;
+
+    [SerializeField]
     private Text playerGold;
     public Button buildCancelButton;
     private Button speedButton;
@@ -45,6 +48,7 @@ public class IngameButtons : MonoBehaviour {
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("MainCamera");
         playerHandler = gameObject.GetComponent<PlayerHandler>();
+        buttonClickSound.volume = 0.3f;
 
         upgradeMenu.gameObject.SetActive(false); //Upgrade menu is not visible at start.
         optionsMenu.gameObject.SetActive(false); // Options menu is not visible at start.
@@ -60,8 +64,14 @@ public class IngameButtons : MonoBehaviour {
         playerGold.text = playerHandler.dollarValue.ToString();
     }
 
+    public void PlayButtonSound()
+    {
+        buttonClickSound.Play();
+    }
+
     public void BuildButtonClick()
     {
+        PlayButtonSound();
         canBuild = true;
         Debug.Log("Build Button pressed.");
         upgradeMenu.gameObject.SetActive(false);
@@ -70,12 +80,14 @@ public class IngameButtons : MonoBehaviour {
 
     public void buildCancelButtonClick()
     {
+        PlayButtonSound();
         canBuild = false;       
         buildCancelButton.gameObject.SetActive(false);
     }
 
     public void OptionsButtonClick()
     {
+        PlayButtonSound();
         optionsButtonPressed = true;
         optionsMenu.gameObject.SetActive(true);
         Time.timeScale = 0; // Pauses the game while the Options window is open. 
@@ -85,6 +97,7 @@ public class IngameButtons : MonoBehaviour {
     public void SpeedUpButtonClick()
     {
         normalTime = !normalTime;
+        PlayButtonSound();
 
         if (normalTime == true)
         {
@@ -103,6 +116,8 @@ public class IngameButtons : MonoBehaviour {
 
     public void Upgrade1ButtonClick()
     {
+        PlayButtonSound();
+
         switch (TurretType)
         {
             case "turretBase":
@@ -120,6 +135,7 @@ public class IngameButtons : MonoBehaviour {
 
     public void Upgrade2ButtonClick()
     {
+        PlayButtonSound();
 
         switch (TurretType)
         {
